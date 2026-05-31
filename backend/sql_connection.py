@@ -12,4 +12,11 @@ def get_connection():
     return __cnx
 
 
-
+def get_connection_pool():
+    pool = mysql.connector.pooling.MySQLConnectionPool(pool_name="mypool",
+                                                       pool_size=5,
+                                                       user='root',
+                                                       password='netflix@11',
+                                                       host='localhost',
+                                                       database='grocery')
+    return pool.get_connection()
